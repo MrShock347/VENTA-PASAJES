@@ -10,34 +10,68 @@
             margin: 0;
             padding: 0;
             text-align: center;
-            background-color: white;
+            position: relative;
+            min-height: 100vh;
         }
+        
+        body::before {
+            content: '';
+            background-image: url('https://d41chssnpqdne.cloudfront.net/user_upload_by_module/chat_bot/files/645820/aCp1oQ6CvZ1s0XIV.jpg?Expires=1741578333&Signature=QeY8P43SUE9S-R4gVTPMrSzgh5pD~LTlYID-trrs5zTnhQUL24bNqXLZfC9JGgZLHIeHdJGjERGAg~GD~GzGmMu~hyo-5X5tsaCOMOF3hzgtK~wxkr1HDqqjskGNPOfVcHpa34~vsKaS1uYNLpdJAUBm6QwgQqbMtUFLV83nCAHmBApWymt~vjOqwGo4DyZ73Qnv7T2e8BBcVTVgsG2BnfwStpg-0wgcDEU4C3Mp1VnZdBhLltSnBucDTbZab2U3twuyiXsak4g4~4~ekbdfzI5Mj4iQM-8msrPngE7XKJWvym75F-e96hZZeQ41ooyOMWlAwYxyzb43ImPwD9eecw__&Key-Pair-Id=K3USGZIKWMDCSX');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3; /* Opacidad reducida */
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            z-index: -1;
+        }
+
         .container {
             max-width: 600px;
             margin: 100px auto;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
+
         input, button, select {
             width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            background: white;
         }
+
         button {
             background-color: #007bff;
             color: white;
             border: none;
             cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
         }
+
         button:hover {
             background-color: #0056b3;
         }
+
+        select {
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+        }
     </style>
     <script>
+        // Tu script completo se mantiene igual
         document.addEventListener("DOMContentLoaded", function() {
             let today = new Date().toISOString().split('T')[0];
             document.getElementById("fecha-vuelo").setAttribute("min", today);
@@ -92,6 +126,7 @@
     </script>
 </head>
 <body>
+    <!-- Todo tu HTML se mantiene igual -->
     <div class="container">
         <h1>TOURS TRAVELS LA SOLUCIÓN</h1>
         <form onsubmit="event.preventDefault(); enviarAWhatsApp();">
