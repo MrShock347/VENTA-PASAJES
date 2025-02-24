@@ -44,6 +44,22 @@
             background-color: #0056b3;
         }
     </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let today = new Date().toISOString().split('T')[0];
+            document.getElementById("fecha-vuelo").setAttribute("min", today);
+            document.getElementById("fecha-regreso").setAttribute("min", today);
+            document.getElementById("fecha-regreso").style.display = "none";
+
+            document.getElementById("tipo-viaje").addEventListener("change", function() {
+                if (this.value === "Ida y vuelta") {
+                    document.getElementById("fecha-regreso").style.display = "block";
+                } else {
+                    document.getElementById("fecha-regreso").style.display = "none";
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="container">
@@ -83,7 +99,7 @@
                 <option value="Ida y vuelta">Ida y vuelta</option>
             </select>
             <input type="date" id="fecha-vuelo" required>
-            <input type="date" id="fecha-regreso" required>
+            <input type="date" id="fecha-regreso" required style="display: none;">
             <select id="aerolinea" required>
                 <option value="" disabled selected>Selecciona la aerolínea</option>
                 <option value="LATAM">LATAM</option>
